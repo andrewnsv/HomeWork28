@@ -1,18 +1,7 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchOneHero } from "../slices/heroesSlice";
-import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Hero = () => {
-  const dispatch = useDispatch();
   const { hero, status, error } = useSelector((state) => state.heroes);
-
-  const { id } = useParams();
-
-  useEffect(() => {
-    dispatch(fetchOneHero(id));
-  }, [dispatch, id]);
-
 
   return (
     <div>

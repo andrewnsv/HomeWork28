@@ -17,7 +17,7 @@ function App() {
           <Route index element={<HomePage />} />
           <Route path="episodes" element={<HeroEpisod />} />
           <Route path="heroes" element={<HeroCard />} />
-          <Route path="heroes/hero/:id" element={<HeroDetails />} />
+          <Route path="heroes/hero" element={<HeroDetails />} />
         </Route>
       </Routes>
     </div>

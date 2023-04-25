@@ -17,6 +17,7 @@ export const fetchOneHero = createAsyncThunk(
   "heroes/fetchOneHero",
   async (id) => {
     try {
+      console.log('id',id)
       const data = await axios.get(`https://rickandmortyapi.com/api/character/${id}`);
       return data.data;
     } catch (error) {
@@ -68,7 +69,11 @@ export const heroesSlice = createSlice({
       [fetchOneHero.fulfilled]: (state, action) => {
         state.status = 'resolved';
         state.hero = action.payload;
-      }
+      },
+      [fetchOneHero.error]: (state, action) => {
+        state.status = 'rejected';
+        state.error = action.error;
+      },
   },
 });
 

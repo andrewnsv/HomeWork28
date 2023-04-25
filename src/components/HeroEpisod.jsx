@@ -12,19 +12,16 @@ const HeroEpisod = () => {
     (state) => state.episodes
   );
 
-  console.log(liftOfEpisodes);
   useEffect(() => {
     dispatch(fetchEpisodes(currentPage));
   }, [dispatch, currentPage]);
 
   const handleNext = () => {
     dispatch(nextHandler());
-    dispatch(fetchEpisodes(currentPage + 1));
   };
 
   const handlePrev = () => {
     dispatch(prevHandler());
-    dispatch(fetchEpisodes(currentPage - 1));
   };
 
   return (

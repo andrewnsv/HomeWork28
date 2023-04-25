@@ -17,17 +17,15 @@ const HeroCard = () => {
 
   const handleNext = () => {
     dispatch(nextHandler());
-    dispatch(fetchHeroes(currentPage + 1));
   };
 
   const handlePrev = () => {
     dispatch(prevHandler());
-    dispatch(fetchHeroes(currentPage - 1));
   };
 
   const handleClick = (id) => {
-    dispatch(fetchOneHero(id))
-  }
+    dispatch(fetchOneHero(id));
+  };
 
   useEffect(() => {
     dispatch(fetchHeroes(currentPage));
@@ -46,7 +44,7 @@ const HeroCard = () => {
                 <p>{item.name}</p>
                 <p>{item.status}</p>
                 <p>{item.species}</p>
-                <Link to={`/heroes/hero/${item.id}`}>
+                <Link to={`/heroes/hero/`}>
                   <button
                     onClick={() => handleClick(item.id)}
                     className="details-card"
